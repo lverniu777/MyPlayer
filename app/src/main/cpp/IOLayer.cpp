@@ -21,9 +21,14 @@ IOLayer::IOLayer(HuaXiaPlayer *pPlayer) {
     this->mPlayer = pPlayer;
 }
 
+IOLayer::~IOLayer() {
+    delete[] mPlayUrl;
+}
+
 void IOLayer::setPlayUrl(JNIEnv *jniEnv, jstring playUrl) {
     const char *url = jniEnv->GetStringUTFChars(playUrl, nullptr);
-    mPlayUrl = new char[strlen(url)];
+    //strlen不包含空字符，加一是为了给空白字符占位
+    mPlayUrl = new char[strlen(url) + 1];
     strcpy(mPlayUrl, url);
     jniEnv->ReleaseStringUTFChars(playUrl, url);
 }

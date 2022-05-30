@@ -35,9 +35,9 @@ void HuaXiaPlayer::setPlayUrl(JNIEnv *jniEnv, jstring playUrl) {
 }
 
 void HuaXiaPlayer::prepareAsync() {
-    ;
+
     /**
-     * 1.初始化缓冲队列、解码器
+     * 1.初始化缓冲队列、IO层、解码层、渲染层
      * 2.打开多媒体文件
      * 3.回调结果
      */

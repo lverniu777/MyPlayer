@@ -39,6 +39,8 @@ public:
 
     IOLayer(HuaXiaPlayer *pPlayer);
 
+    ~IOLayer();
+
     void open(PacketQueue *audioPacketQ, PacketQueue *videoPacketQ,
               HuaXiaPlayer *player,
               void (*openCallback)(HuaXiaPlayer *, DecodeParameter *));
